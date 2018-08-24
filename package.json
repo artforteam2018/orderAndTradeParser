@@ -1,0 +1,28 @@
+{
+  "name": "saver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "migrate": "node-pg-migrate"
+  },
+  "dependencies": {
+    "bitfinex-api-node": "^2.0.0-beta.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hitbtc-node-api": "github:artforteam2015/hitbtc-node-api",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-binance-api": "^0.8.1",
+    "node-okex-ws-spot": "^1.1.4",
+    "node-pg-migrate": "^3.8.1",
+    "okex-api-node": "github:artforteam2015/okex-api-node",
+    "pg": "^7.4.3",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
