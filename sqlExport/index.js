@@ -30,6 +30,25 @@ function sendTrade(tradeOb, client, exchange, nodetime){
     .catch(e => other.makeLog(e))
 }
 
+
+function send30Min(tradeOb, client, exchange, nodetime){
+    let query = {
+        text: 'INSERT INTO candle30min(exchange, ticker, high, low, amount, nodetime) VALUES($1, $2, $3, $4, $5, $6)',
+        values: [exchange, tradeOb.ticker, parseFloat(tradeOb.high).toFixed(8), parseFloat(tradeOb.low).toFixed(8), parseFloat(tradeOb.amount).toFixed(8), nodetime],
+    }
+    client.query(query)
+        .catch(e => other.makeLog(e))
+}
+
+function send1Min(tradeOb, client, exchange, nodetime){
+    let query = {
+        text: 'INSERT INTO candle1min(exchange, ticker, high, low, amount, nodetime) VALUES($1, $2, $3, $4, $5, $6)',
+        values: [exchange, tradeOb.ticker, parseFloat(tradeOb.high).toFixed(8), parseFloat(tradeOb.low).toFixed(8), parseFloat(tradeOb.amount).toFixed(8), nodetime],
+    }
+    client.query(query)
+        .catch(e => other.makeLog(e))
+}
+
 function sendOrderbook(orderbook, client, exchange, nodetime){
     let query = {
         text: 'INSERT INTO orderbook(exchange, ticker, price, amount, type, number, nodetime) VALUES($1, $2, $3, $4, $5, $6, $7)',
@@ -42,3 +61,5 @@ function sendOrderbook(orderbook, client, exchange, nodetime){
 module.exports.sendTrade = sendTrade
 module.exports.sendOrderbook = sendOrderbook
 module.exports.ConnectBase = ConnectBase
+module.exports.send1Min = send1Min
+module.exports.send30Min = send30Min

@@ -11,14 +11,13 @@ const user = 'postgres'
 const pass = '88228228'
 const database = 'saver'
 
+
+
 sqlExport.ConnectBase(host, port, user, pass, database)
     .then(
         result => {
             const client = result
-            bitfinex.connect(client)
-            binance.connect(client)
-            okex.connect(client)
-            hitbtc.connect(client)
+            binance.connect(client, ['GTOBTC', 'LOOMBTC'])
         })
     .catch(
         e => other.makeLog(e)
